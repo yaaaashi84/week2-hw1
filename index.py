@@ -18,8 +18,8 @@ print("Will use tool '%s'" % (tool.get_name()))
 def image_to_text(file_path):
     txt = tool.image_to_string(
         Image.open(file_path),  # OCRする画像
-        lang="eng+jpn",  # 学習済み言語データ
-        builder=pyocr.builders.DigitBuilder(Tesseract_layout=6),
+        lang="jpn",  # 学習済み言語データ
+        builder=pyocr.builders.DigitBuilder(tesseract_layout=6),
     )
 
     return txt
@@ -51,7 +51,7 @@ def main():
     with open("cal.txt", "r") as r:
         cal_sum = r.read()
 
-    print(str(today.year) + "/" + str(today.month) + "/" + str(today.day) + "の摂取カロリーは" + str(cal_sum) + "kcalです。")
+    print(str(today.year) + "/" + str(today.month) + "/" + str(today.day) + "の摂取カロリーは" + cal_sum + "kcalです。")
 
 
 if __name__ == "__main__":
